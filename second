@@ -10,8 +10,8 @@ contract MyToken {
 
     constructor() {
         // Initialize token details
-        tokenName = "Emberred";
-        tokenAbbrv = "EMBs";
+        tokenName = "ember";
+        tokenAbbrv = "embs";
         tokenSupply = 1000000;
     }
 
