@@ -1,4 +1,4 @@
-CREATING MY OWN TOKEN  
+[CREATING MY OWN TOKEN  
 The project involves the creation of a custom token using the Solidity programming language. Tokens are a fundamental aspect of the Ethereum blockchain ecosystem, representing digital assets that can be transferred and exchanged. By developing your own token, you can explore the underlying concepts of blockchain, smart contracts, and decentralized finance.
 Description
 The Ember Token Contract enables the creation of the Ember token. The contract consists of the following key components:
@@ -62,3 +62,4 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 This README provides a concise and clear overview of the Ember Token Solidity Contract, its purpose, and instructions on how to interact with it. It serves as a valuable resource for developers seeking to understand and utilize the Ember token within their Ethereum projects.
 
 I hope this README meets your requirements and effectively conveys the necessary information about your Ember Token Contract. If you have any further questions or need additional assistance, please let me know.
+](https://www.loom.com/share/c4487f939dff470db454fefb6f1c37df?sid=7f295131-ee41-462a-8301-29d746dbdc51)https://www.loom.com/share/c4487f939dff470db454fefb6f1c37df?sid=7f295131-ee41-462a-8301-29d746dbdc51
