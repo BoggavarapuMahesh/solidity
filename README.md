@@ -59,6 +59,6 @@ Input the adress and value and click on the corresponding function buttons to ex
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-This README provides a concise and clear overview of the Ember Token Solidity Contract, its purpose, and instructions on how to interact with it. It serves as a valuable resource for developers seeking to understand and utilize the Ember token within their Ethereum projects.
+
 
 
