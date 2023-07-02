@@ -10,9 +10,9 @@ contract MyToken {
 
     constructor() {
         // Initialize token details
-        tokenName = "ember";
-        tokenAbbrv = "embs";
-        tokenSupply = 1000000;
+        tokenName = "Mahesh";
+        tokenAbbrv = "Mahi";
+        tokenSupply = 3000000;
     }
 
     function mint(address _address, uint _value) public {
