@@ -7,6 +7,10 @@ contract MyToken {
     uint256 public totalSupply;
     mapping(address => uint256) public balances;
 
+    event Transfer(address indexed from, address indexed to, uint256 value);
+    event Mint(address indexed to, uint256 value);
+    event Burn(address indexed from, uint256 value);
+
     constructor(string memory _name, string memory _symbol, uint256 _initialSupply) {
         name = _name;
         symbol = _symbol;
@@ -21,9 +25,12 @@ contract MyToken {
      */
     function mint(address _recipient, uint256 _amount) public {
         require(_recipient != address(0), "Invalid address");
-        
+        require(totalSupply + _amount <= 1000000, "Max supply reached");
+
         totalSupply += _amount;
         balances[_recipient] += _amount;
+
+        emit Mint(_recipient, _amount);
     }
 
     /**
@@ -34,8 +41,28 @@ contract MyToken {
     function burn(address _holder, uint256 _amount) public {
         require(_holder != address(0), "Invalid address");
         require(balances[_holder] >= _amount, "Insufficient balance");
+        require(totalSupply - _amount >= 0, "Total supply below 0");
 
         totalSupply -= _amount;
         balances[_holder] -= _amount;
+
+        emit Burn(_holder, _amount);
+    }
+
+    /**
+     *  Transfer tokens from one address to another
+     *  _from The address to transfer tokens from
+     *  _to The address to transfer tokens to
+     *  _amount The amount of tokens to transfer
+     */
+    function transfer(address _from, address _to, uint256 _amount) public {
+        require(_from != address(0), "Invalid address");
+        require(_to != address(0), "Invalid address");
+        require(balances[_from] >= _amount, "Insufficient balance");
+
+        balances[_from] -= _amount;
+        balances[_to] += _amount;
+
+        emit Transfer(_from, _to, _amount);
     }
 }
