@@ -1,21 +1,33 @@
 ## MyToken
+This contract defines a simple token with the following features:
 
-The `MyToken` contract represents a basic implementation of an ERC20 token on the Ethereum blockchain. It allows for token minting and burning, and keeps track of token balances for different addresses.
+A name and symbol
+A total supply of tokens
+A mapping of token balances to addresses
 
-### Functionality
+# Functions to mint new tokens, burn existing tokens, and transfer tokens between addresses
 
-1. **Constructor**: The constructor function is executed only once during the contract deployment. It takes three parameters: `_name`, `_symbol`, and `_totalSupply`. These parameters are used to set the token's name, symbol, and total supply. The balance of the contract creator (the address that deployed the contract) is set to the total supply.
+The constructor initializes the token with an initial supply.
+The mint function allows new tokens to be minted, increasing the total supply.
+The burn function allows existing tokens to be burned, decreasing the total supply.
+The transfer function allows tokens to be transferred between addresses.
 
-2. **Minting**: The `mint` function is used to create new tokens and increase the total supply. It takes two parameters: `_to` (the address to receive the newly minted tokens) and `_value` (the amount of tokens to mint). The function increases the total supply by the specified amount and assigns the tokens to the recipient's address.
+The maximum supply of tokens is 1000000. The burn function now checks if the total supply will be below 0 after the burn. The transfer function now checks if the sender and recipient addresses are valid.
 
-3. **Burning**: The `burn` function is used to destroy tokens and decrease the total supply. It takes two parameters: `_from` (the address from which to burn tokens) and `_value` (the amount of tokens to burn). The function checks if the balance of the `_from` address is sufficient to burn the requested amount. If the balance is sufficient, it decreases the total supply and updates the `_from` address's balance accordingly.
+# Functions
+mint(address _recipient, uint256 _amount) - Mints new tokens and increases the total supply.
+burn(address _holder, uint256 _amount) - Burns tokens and decreases the total supply.
+transfer(address _from, address _to, uint256 _amount) - Transfers tokens from one address to another.
 
-The contract also includes public variables:
+# Events
+Transfer(address indexed from, address indexed to, uint256 value) - Emitted when tokens are transferred.
+Mint(address indexed to, uint256 value) - Emitted when tokens are minted.
+Burn(address indexed from, uint256 value) - Emitted when tokens are burned.
 
-- `name`: A string variable that represents the name of the token.
-- `symbol`: A string variable that represents the symbol or abbreviation of the token.
-- `totalSupply`: An unsigned integer variable that holds the total supply of the token.
+# Usage
+To use the contract, you can create a new instance of the contract and then call the functions on the contract. For example, to mint 100 new tokens and assign them to an address, you would call the mint function like this:
+
+contract MyToken myToken = new MyToken("MyToken", "MTK", 1000000);
+myToken.mint(0x1234567890abcdef, 100);
 
 Additionally, there is a `balances` mapping that associates addresses with their respective token balances. The `balances` mapping allows for the retrieval of the balance of any address.
-
-The contract is designed to be deployed on the Ethereum blockchain and interacted with using function calls. It provides basic token functionality, enabling the minting and burning of tokens while maintaining balances and the total token supply.
